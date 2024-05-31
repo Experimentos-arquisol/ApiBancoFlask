@@ -16,10 +16,11 @@ csrf = CSRFProtect(app)
 
 logging.basicConfig(level=logging.DEBUG)
 
-@app.route('/validar_cliente/', methods=['POST'])
+@app.route('/validar_cliente/', methods=['POST', 'GET'])
 @csrf.exempt
 def validar_cliente():
     correo_usuario = request.form.get('correo')
+    app.logger.debug("Peticion recibida")
     if not correo_usuario:
         return jsonify({"error": "Falta el correo o usuario en la solicitud"}), 400
 
@@ -60,5 +61,5 @@ def get_all_clientes():
         return jsonify({"error": "No se pudieron obtener los clientes"}), 400
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000)
 
