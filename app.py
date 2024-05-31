@@ -51,6 +51,15 @@ def crear_cliente():
 def prueba():
     return jsonify({"rta": "Holaaa"}), 200
 
+#get all clientes
+@app.route('/get_clientes/', methods=['GET'])
+def get_all_clientes():
+    clientes = cl.get_all_clientes()
+    if clientes:
+        return jsonify(clientes), 200
+    else:
+        return jsonify({"error": "No se pudieron obtener los clientes"}), 400
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
 

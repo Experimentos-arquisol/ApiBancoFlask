@@ -28,3 +28,19 @@ def buscar_cliente(correo_usuario):
     except Exception as e:
         print(f"Error al buscar el cliente: {e}")
         return None
+    
+def get_all_clientes():
+    try:
+        clientes = Cliente.query.all()
+        clientes_list = [{
+            'id': cliente.id,
+            'nombre': cliente.nombre,
+            'apellido': cliente.apellido,
+            'usuario': cliente.usuario,
+            'correo': cliente.correo,
+            'telefono': cliente.telefono
+        } for cliente in clientes]
+        return clientes_list
+    except Exception as e:
+        print(f"Error al obtener los clientes: {e}")
+        return None
