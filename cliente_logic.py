@@ -33,7 +33,6 @@ def get_all_clientes():
     try:
         clientes = Cliente.query.all()
         clientes_list = [{
-            'id': cliente.id,
             'nombre': cliente.nombre,
             'apellido': cliente.apellido,
             'usuario': cliente.usuario,
