@@ -7,7 +7,7 @@ from models import db
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'django-insecure-)h&hw17vn5r^pmj$2&$rd!*^q*384iop)lft9xs^_l!6%_oy7^'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_user:sprint321@localhost:5432/usuarios_db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql+psycopg2://admin_user:sprint321@10.128.0.52:5432/usuarios_db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
